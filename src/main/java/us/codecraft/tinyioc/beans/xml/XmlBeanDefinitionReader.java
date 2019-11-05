@@ -15,6 +15,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 
 /**
+ * 具体实现了 loadBeanDefinitions() 方法，从 XML 文件中读取类定义。
+ *
  * @author yihua.huang@dianping.com
  */
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {

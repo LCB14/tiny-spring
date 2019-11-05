@@ -7,6 +7,8 @@ import java.net.URLConnection;
 
 /**
  * @author yihua.huang@dianping.com
+ *
+ * 实现 Resource 接口的资源类，通过 URL 获取资源。
  */
 public class UrlResource implements Resource {
 

@@ -33,7 +33,9 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		}
 		Object bean = beanDefinition.getBean();
 		if (bean == null) {
+			// 实例化bean
 			bean = doCreateBean(beanDefinition);
+			// 初始化bean
             bean = initializeBean(bean, name);
             beanDefinition.setBean(bean);
 		}
@@ -69,9 +71,16 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception {
+		// 生成一个新实例
 		Object bean = createBeanInstance(beanDefinition);
 		beanDefinition.setBean(bean);
+
+		/**
+		 * 注入属性，包括依赖注入的过程。在依赖注入的过程中，如果 Bean 实现了BeanFactoryAware 接口，则将容器的引用传入到 Bean 中去，
+		 * 这样，Bean 将获取对容器操作的权限，也就允许了 编写扩展 IoC 容器的功能的 Bean。
+ 		 */
 		applyPropertyValues(bean, beanDefinition);
+
 		return bean;
 	}
 

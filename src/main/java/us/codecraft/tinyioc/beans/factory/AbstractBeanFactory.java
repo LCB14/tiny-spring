@@ -43,7 +43,13 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	protected Object initializeBean(Object bean, String name) throws Exception {
-		// 依次取出 BeanPostProcessor 执行 bean = postProcessBeforeInitialization(bean,beanName) 。
+		/**
+		 * 依次取出 BeanPostProcessor 执行 bean = postProcessBeforeInitialization(bean,beanName) 。
+		 *
+		 * 此处为实现 AOP 的代理提供了可能！
+		 * 假设方法要求传入的对象实现了 IObj 接口，实际传入的对象是 Obj，那么在方法中，通过动态代理，
+		 * 可以 生成一个实现了 IObj 接口并把 Obj 作为内置对象的代理类 Proxy 返回，此时 Bean 已经被偷偷换成了它的代理类。
+ 		 */
 		for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
 			bean = beanPostProcessor.postProcessBeforeInitialization(bean, name);
 		}

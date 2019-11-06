@@ -18,8 +18,14 @@ import java.util.Map;
  */
 public abstract class AbstractBeanDefinitionReader implements BeanDefinitionReader {
 
+    /**
+     * beanDefinition 容器
+     */
     private Map<String,BeanDefinition> registry;
 
+    /**
+     * 资源加载器
+     */
     private ResourceLoader resourceLoader;
 
     protected AbstractBeanDefinitionReader(ResourceLoader resourceLoader) {

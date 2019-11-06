@@ -19,10 +19,19 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class AbstractBeanFactory implements BeanFactory {
 
+	/**
+	 * 存储bean的容器
+	 */
 	private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 
+	/**
+	 * 存储bean的名称
+	 */
 	private final List<String> beanDefinitionNames = new ArrayList<String>();
 
+	/**
+	 * 存储bean初始化过程可能被用到的后置处理器
+	 */
 	private List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
 
 	@Override

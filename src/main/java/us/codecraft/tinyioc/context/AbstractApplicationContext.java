@@ -21,8 +21,13 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 	}
 
 	public void refresh() throws Exception {
+		// 加载类定义，并注入到内置的 BeanFactory 中，这里的可扩展性在于，未对加载方法进行要求，也就是可以从不同来源的不同类型的资源进行加载。
 		loadBeanDefinitions(beanFactory);
+
+		// 获取所有的 BeanPostProcessor，并注册到 BeanFactory 维护的 BeanPostProcessor 列表去。
 		registerBeanPostProcessors(beanFactory);
+
+		// 以单例的方式，初始化所有 Bean。tiny-spring 只支持 singleton 模式。
 		onRefresh();
 	}
 

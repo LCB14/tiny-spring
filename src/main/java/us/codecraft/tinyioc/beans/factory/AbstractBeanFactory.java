@@ -43,10 +43,12 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	protected Object initializeBean(Object bean, String name) throws Exception {
+		// 依次取出 BeanPostProcessor 执行 bean = postProcessBeforeInitialization(bean,beanName) 。
 		for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
 			bean = beanPostProcessor.postProcessBeforeInitialization(bean, name);
 		}
 
+		// 初始化方法 -- 暂未实现
 		// TODO:call initialize method
 		for (BeanPostProcessor beanPostProcessor : beanPostProcessors) {
             bean = beanPostProcessor.postProcessAfterInitialization(bean, name);

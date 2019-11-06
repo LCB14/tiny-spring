@@ -8,6 +8,8 @@ import us.codecraft.tinyioc.beans.factory.BeanFactory;
 import java.util.List;
 
 /**
+ * AspectJAwareAdvisorAutoProxyCreator是实现 AOP 植入的关键类
+ *
  * @author yihua.huang@dianping.com
  */
 public class AspectJAwareAdvisorAutoProxyCreator implements BeanPostProcessor, BeanFactoryAware {

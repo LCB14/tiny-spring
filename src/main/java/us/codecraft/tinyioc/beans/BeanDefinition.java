@@ -18,8 +18,14 @@ public class BeanDefinition {
 
 	private Object bean;
 
+	/**
+	 * bean 的类型
+	 */
 	private Class beanClass;
 
+	/**
+	 * bean 的名称
+	 */
 	private String beanClassName;
 
 	private PropertyValues propertyValues = new PropertyValues();

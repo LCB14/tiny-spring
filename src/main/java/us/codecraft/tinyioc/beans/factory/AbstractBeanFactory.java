@@ -102,6 +102,13 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 		return bean;
 	}
 
+	/**
+	 * 把生成 Bean 的具体实现方式留给子类实现。-- 模板方法模式在spring使用的很多。
+	 *
+	 * @param bean
+	 * @param beanDefinition
+	 * @throws Exception
+	 */
 	protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) throws Exception {
 
 	}

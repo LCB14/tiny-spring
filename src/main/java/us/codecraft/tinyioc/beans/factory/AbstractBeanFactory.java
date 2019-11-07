@@ -46,6 +46,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 			bean = doCreateBean(beanDefinition);
 			// 初始化bean
             bean = initializeBean(bean, name);
+            // 设置bean实例
             beanDefinition.setBean(bean);
 		}
 		return bean;

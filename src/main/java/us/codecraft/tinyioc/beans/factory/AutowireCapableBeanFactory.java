@@ -22,7 +22,8 @@ import java.lang.reflect.Method;
  */
 public class AutowireCapableBeanFactory extends AbstractBeanFactory {
 
-	protected void applyPropertyValues(Object bean, BeanDefinition mbd) throws Exception {
+	@Override
+    protected void applyPropertyValues(Object bean, BeanDefinition mbd) throws Exception {
 		if (bean instanceof BeanFactoryAware) {
 			((BeanFactoryAware) bean).setBeanFactory(this);
 		}

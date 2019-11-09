@@ -16,6 +16,9 @@ package us.codecraft.tinyioc.beans;
  */
 public class BeanDefinition {
 
+	/**
+	 * bean实例
+	 */
 	private Object bean;
 
 	/**

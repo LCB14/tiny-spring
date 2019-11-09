@@ -113,10 +113,23 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
 	}
 
+	/**
+	 * 添加后置处理器
+	 *
+	 * @param beanPostProcessor
+	 * @throws Exception
+	 */
 	public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) throws Exception {
 		this.beanPostProcessors.add(beanPostProcessor);
 	}
 
+	/**
+	 * 通过类型获取相关的bean
+	 *
+	 * @param type
+	 * @return
+	 * @throws Exception
+	 */
 	public List getBeansForType(Class type) throws Exception {
 		List beans = new ArrayList<Object>();
 		for (String beanDefinitionName : beanDefinitionNames) {

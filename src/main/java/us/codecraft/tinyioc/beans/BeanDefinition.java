@@ -17,7 +17,7 @@ package us.codecraft.tinyioc.beans;
 public class BeanDefinition {
 
 	/**
-	 * bean实例
+	 * 目标类实例
 	 */
 	private Object bean;
 
@@ -31,6 +31,9 @@ public class BeanDefinition {
 	 */
 	private String beanClassName;
 
+	/**
+	 * 目标类属性值
+	 */
 	private PropertyValues propertyValues = new PropertyValues();
 
 	public BeanDefinition() {

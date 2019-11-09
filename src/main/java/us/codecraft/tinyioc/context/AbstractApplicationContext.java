@@ -20,6 +20,11 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 		this.beanFactory = beanFactory;
 	}
 
+	/**
+	 * 用于实现 BeanFactory 的刷新，也就是告诉 BeanFactory 该使用哪个资源（Resource）加载类定义（BeanDefinition）信息
+	 *
+	 * @throws Exception
+	 */
 	public void refresh() throws Exception {
 		// 加载类定义，并注入到内置的 BeanFactory 中，这里的可扩展性在于，未对加载方法进行要求，也就是可以从不同来源的不同类型的资源进行加载。
 		loadBeanDefinitions(beanFactory);
